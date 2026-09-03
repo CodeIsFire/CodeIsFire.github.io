@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Self-hosted latin subsets only. The fontsource packages ship 13 subsets
+   between them (cyrillic, greek, vietnamese, latin-ext); this site needs
+   latin, so the two files are copied into public/fonts and declared here. */
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Terminal design tokens.
+   Carried over verbatim from the previous site's assets/css/custom.css so the
+   identity survives the stack change: GitHub-green accent on near-black,
+   JetBrains Mono for anything structural, Inter for prose.
+   --------------------------------------------------------------------------- */
+@theme {
+  /* Named 'shell', not 'base': a --color-base token makes Tailwind generate
+     text-base as a COLOR utility, silently overriding the built-in
+     text-base font-size and painting body copy background-coloured. */
+  --color-shell: #0b0d10;
+  --color-panel: #11151a;
+  --color-panel-hi: #161b22;
+  --color-accent: #3fb950;
+  --color-accent-dim: #2ea043;
+  --color-accent-glow: rgb(63 185 80 / 0.14);
+  --color-text: #c9d1d9;
+  --color-text-dim: #8b949e;
+  --color-text-hi: #ffffff;
+  --color-line: #21262d;
+
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 6px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* the sticky section rail must not cover anchor targets */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-shell);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-mono);
+    color: var(--color-text-hi);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-shell);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Firefox */
+  * { scrollbar-color: var(--color-line) var(--color-shell); }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-shell); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 5px;
+    border: 2px solid var(--color-shell);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #30363d; }
+}
+
+@layer utilities {
+  /* The ambient gradient that replaced the template's scenic photo. */
+  .bg-terminal-glow {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 12% 0%, rgb(63 185 80 / 0.10), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 88% 100%, rgb(46 160 67 / 0.07), transparent 55%),
+      linear-gradient(180deg, #0b0d10 0%, #0d1117 100%);
+  }
+
+  /* Faint scanline grid; deliberately near-invisible so text stays crisp. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(201 209 217 / 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(201 209 217 / 0.028) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+}
+
+/* ---------------------------------------------------------------------------
+   Chart tokens (Bklit registry).
+   Rewritten from the registry default in two ways:
+     1. the generated `@theme inline` block referenced `var(----chart-1)` with
+        four dashes, which resolves to nothing — corrected to two;
+     2. the registry ships a light palette with a `.dark` class override, but
+        this site is dark-only and never sets that class, so the terminal
+        palette is applied directly on :root.
+   --------------------------------------------------------------------------- */
+:root {
+  /* Accent ramp, brightest first — mirrors --color-accent. */
+  --chart-1: #3fb950;
+  --chart-2: #2ea043;
+  --chart-3: #238636;
+  --chart-4: #1a6929;
+  --chart-5: #124c1d;
+
+  --chart-background: transparent;
+  --chart-foreground: #8b949e;
+  --chart-foreground-muted: #6e7681;
+  --chart-crosshair: #30363d;
+  --chart-grid: #21262d;
+  --chart-brush-border: #21262d;
+  --chart-line-primary: #3fb950;
+  --chart-line-secondary: #2ea043;
+
+  --chart-tooltip-background: #161b22;
+  --chart-tooltip-foreground: #ffffff;
+  --chart-tooltip-muted: #8b949e;
+
+  --chart-marker-background: #161b22;
+  --chart-marker-border: #30363d;
+  --chart-marker-foreground: #c9d1d9;
+  --chart-label: #8b949e;
+
+  --chart-scale-01: #0d1117;
+  --chart-scale-02: #124c1d;
+  --chart-scale-03: #1a6929;
+  --chart-scale-04: #2ea043;
+  --chart-scale-05: #3fb950;
+  --chart-scale-pattern-color: #0b0d10;
+}
+
+@theme inline {
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-background: var(--chart-background);
+  --color-chart-foreground: var(--chart-foreground);
+  --color-chart-foreground-muted: var(--chart-foreground-muted);
+  --chart-line-primary: var(--chart-line-primary);
+  --chart-line-secondary: var(--chart-line-secondary);
+  --color-chart-crosshair: var(--chart-crosshair);
+  --color-chart-grid: var(--chart-grid);
+  --chart-brush-border: var(--chart-brush-border);
+  --color-chart-tooltip-background: var(--chart-tooltip-background);
+  --color-chart-tooltip-foreground: var(--chart-tooltip-foreground);
+  --color-chart-tooltip-muted: var(--chart-tooltip-muted);
+  --color-chart-marker-background: var(--chart-marker-background);
+  --color-chart-marker-border: var(--chart-marker-border);
+  --color-chart-marker-foreground: var(--chart-marker-foreground);
+  --color-chart-label: var(--chart-label);
+  --color-chart-scale-01: var(--chart-scale-01);
+  --color-chart-scale-02: var(--chart-scale-02);
+  --color-chart-scale-03: var(--chart-scale-03);
+  --color-chart-scale-04: var(--chart-scale-04);
+  --color-chart-scale-05: var(--chart-scale-05);
+  --color-chart-scale-pattern-color: var(--chart-scale-pattern-color);
+}

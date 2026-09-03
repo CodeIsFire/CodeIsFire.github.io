@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-09-03T09:13:33.999Z",
+  "github": {
+    "repos": 9,
+    "stars": 6,
+    "languages": [
+      {
+        "name": "Jupyter Notebook",
+        "bytes": 1991188,
+        "percent": 57.2
+      },
+      {
+        "name": "TypeScript",
+        "bytes": 600728,
+        "percent": 17.2
+      },
+      {
+        "name": "Python",
+        "bytes": 546772,
+        "percent": 15.7
+      },
+      {
+        "name": "JavaScript",
+        "bytes": 163230,
+        "percent": 4.7
+      },
+      {
+        "name": "CSS",
+        "bytes": 117153,
+        "percent": 3.4
+      },
+      {
+        "name": "SCSS",
+        "bytes": 50642,
+        "percent": 1.5
+      }
+    ],
+    "topRepos": [
+      {
+        "name": "Catto-web-extension",
+        "description": "Catto is a Chrome and Edge browser extension that adds an AI-powered cat assistant to any webpage. It reads the page content, understands the page structure, and lets users chat with a floating cat widget to ask questions or request simple in-page changes. ",
+        "language": "JavaScript",
+        "url": "https://github.com/CodeIsFire/Catto-web-extension"
+      },
+      {
+        "name": "USER-BEHAVIOUR-DATASET-ML",
+        "description": "APPLIED RANDOM FOREST CLASSIFIER AND EXPLORED VARIOUS DATA visualisation TOOLS",
+        "language": "Jupyter Notebook",
+        "url": "https://github.com/CodeIsFire/USER-BEHAVIOUR-DATASET-ML"
+      },
+      {
+        "name": "SENTIMENT-ANALYSIS",
+        "description": "applying basic data cleaning on a youtube comments data set and analysing sentiment using Textblob",
+        "language": "Jupyter Notebook",
+        "url": "https://github.com/CodeIsFire/SENTIMENT-ANALYSIS"
+      },
+      {
+        "name": "GNU-RADIO",
+        "description": "5g cell scanner. contains relevant filepaths and approaches used during gsoc'25 under GNU-RADIO",
+        "language": "Python",
+        "url": "https://github.com/CodeIsFire/GNU-RADIO"
+      }
+    ]
+  },
+  "leetcode": {
+    "total": 95,
+    "easy": 67,
+    "medium": 27,
+    "hard": 1
+  }
+}
