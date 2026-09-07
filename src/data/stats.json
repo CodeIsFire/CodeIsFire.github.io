@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-09-03T09:13:33.999Z",
+  "generatedAt": "2026-09-07T11:34:56.169Z",
   "github": {
-    "repos": 9,
+    "repos": 8,
     "stars": 6,
     "languages": [
       {
-        "name": "Jupyter Notebook",
-        "bytes": 1991188,
-        "percent": 57.2
-      },
-      {
         "name": "TypeScript",
-        "bytes": 600728,
-        "percent": 17.2
+        "bytes": 822520,
+        "percent": 44.1
       },
       {
         "name": "Python",
-        "bytes": 546772,
-        "percent": 15.7
+        "bytes": 558948,
+        "percent": 29.9
+      },
+      {
+        "name": "Jupyter Notebook",
+        "bytes": 249801,
+        "percent": 13.4
       },
       {
         "name": "JavaScript",
-        "bytes": 163230,
-        "percent": 4.7
+        "bytes": 144131,
+        "percent": 7.7
       },
       {
         "name": "CSS",
-        "bytes": 117153,
-        "percent": 3.4
+        "bytes": 87820,
+        "percent": 4.7
       },
       {
-        "name": "SCSS",
-        "bytes": 50642,
-        "percent": 1.5
+        "name": "HTML",
+        "bytes": 3917,
+        "percent": 0.2
       }
     ],
     "topRepos": [
@@ -63,9 +63,9 @@
     ]
   },
   "leetcode": {
-    "total": 95,
-    "easy": 67,
-    "medium": 27,
+    "total": 98,
+    "easy": 68,
+    "medium": 29,
     "hard": 1
   }
 }
