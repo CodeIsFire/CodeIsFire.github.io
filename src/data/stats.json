@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-28T12:54:30.334Z",
+  "generatedAt": "2026-10-05T13:35:50.194Z",
   "github": {
     "repos": 8,
-    "stars": 6,
+    "stars": 7,
     "languages": [
       {
         "name": "TypeScript",
         "bytes": 822520,
-        "percent": 44.1
+        "percent": 44
       },
       {
         "name": "Python",
-        "bytes": 558948,
-        "percent": 29.9
+        "bytes": 561921,
+        "percent": 30
       },
       {
         "name": "Jupyter Notebook",
@@ -37,6 +37,12 @@
     ],
     "topRepos": [
       {
+        "name": "GNU-RADIO",
+        "description": "5g cell scanner. contains relevant filepaths and approaches used during gsoc'25 under GNU-RADIO",
+        "language": "Python",
+        "url": "https://github.com/CodeIsFire/GNU-RADIO"
+      },
+      {
         "name": "Catto-web-extension",
         "description": "Catto is a Chrome and Edge browser extension that adds an AI-powered cat assistant to any webpage. It reads the page content, understands the page structure, and lets users chat with a floating cat widget to ask questions or request simple in-page changes. ",
         "language": "JavaScript",
@@ -53,19 +59,13 @@
         "description": "applying basic data cleaning on a youtube comments data set and analysing sentiment using Textblob",
         "language": "Jupyter Notebook",
         "url": "https://github.com/CodeIsFire/SENTIMENT-ANALYSIS"
-      },
-      {
-        "name": "GNU-RADIO",
-        "description": "5g cell scanner. contains relevant filepaths and approaches used during gsoc'25 under GNU-RADIO",
-        "language": "Python",
-        "url": "https://github.com/CodeIsFire/GNU-RADIO"
       }
     ]
   },
   "leetcode": {
-    "total": 113,
-    "easy": 80,
-    "medium": 32,
+    "total": 118,
+    "easy": 82,
+    "medium": 35,
     "hard": 1
   }
 }
