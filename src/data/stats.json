@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T12:15:25.685Z",
+  "generatedAt": "2026-11-02T14:45:26.067Z",
   "github": {
     "repos": 8,
     "stars": 6,
@@ -63,8 +63,8 @@
     ]
   },
   "leetcode": {
-    "total": 130,
-    "easy": 89,
+    "total": 133,
+    "easy": 92,
     "medium": 40,
     "hard": 1
   }
